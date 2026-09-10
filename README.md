@@ -43,12 +43,19 @@ D = Vout / Vin
 L = (D*(Vin - Vout))/(Fswitch * Iripple)
 
 Use the worst case output voltage, hence use Voutmax
+
 L = (D*(Vin - Voutmax))/(Fswitch * Iripple)
+
 D = Voutmax / Vin
+
 D = 9 / 12 = 0.75
+
 L = (0.75 * (12 - 9))/(100k * 0.8)
+
 L = (2.25)/(80k)
+
 L = 0.000028125H
+
 L = 28.125μH
 
 Hence the standard sized 33µH inductor will be used
