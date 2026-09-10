@@ -4,27 +4,26 @@ The buck converter is to take a 12V input and produce an output from 1.5V to 9V 
 
 ## Components
 
-mosfet
-Gate driver circuit to drive the mosfet, ESP32 does not provide enough volatge
-gate resistors
+- mosfet
+- - Gate driver circuit to drive the mosfet, ESP32 does not provide enough volatge
+- - gate resistors
 
-ADC protection
-ADC noise capacitors
+- ADC protection
+- ADC noise capacitors
+
+- Schottky diode
+- Inductor
+- Input capacitors
+- Output capacitors
+- Voltage divider resistors
 
 
-Schottky diode
-Inductor
-Input capacitors
-Output capacitors
-Voltage divider resistors
+- ESP32
+- - Voltage regulator for ESP32
+- - decoupling capacitors
 
-
-ESP32
-Voltage regulator for ESP32
-decoupling capacitors
-
-LCD with I2C backpack
-Rotary
+- LCD with I2C backpack
+- Rotary
 
 ## Calculations
 
