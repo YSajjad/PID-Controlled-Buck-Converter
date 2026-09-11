@@ -5,7 +5,7 @@ The current sensor is to be implemented via a shunt resistor. The ESP32 cannot h
 A MOSFET driver is used as the ESP32 cannot supply enough voltage normally.
 The ESP32 is to be independently powered with USB-C. 
 
-<img width="953" height="606" alt="image" src="https://github.com/user-attachments/assets/0ff63263-d62e-45c1-b514-b9a0f6ad5688" />
+<img width="964" height="610" alt="image" src="https://github.com/user-attachments/assets/ea0364b2-fb53-425b-acd4-b5d6de32e7c7" />
 
 ## Components
 
