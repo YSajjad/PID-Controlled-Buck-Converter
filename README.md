@@ -19,7 +19,7 @@ Will be updated as research continues, below are the components needed based on 
 - Schottky diode
 - 33µH Inductor
 - 100n Input capacitor (stops high frequency noise)
-- 0.68μF Output capacitor (Seen in most basic buck converter diagrams, stores and releases charge in on and off phase)
+- 33μF Output capacitor (Seen in most basic buck converter diagrams, stores and releases charge in on and off phase)
 - Voltage divider resistors (decreases output voltage so the esp32 can safely measure it)
 - Shunt resistor ciruit (allows for current to be measured)
 
@@ -81,19 +81,36 @@ Hence a 33µH inductor will be used.
 
 ### Output Capacitor Calculations
 
-C = Iripple / (8 * Fswitch * Vout)
+C = Iripple / (8 * Fswitch * ΔVout)
 
-Use worst case senario for Vout, hence use Voutmin
+First calculate the actual inductor ripple current
 
-C = Iripple / (8 * Fswitch * Voutmin)
+Iripple = D*(Vin - Vout) / (Fswitch * L)
 
-C = 0.8 / (8 * 100k * 1.5)
+Use Voutmin
 
-C = 0.8 / 1200k
+D = Vout / Vin
 
-C = 0.000000666666...
+D = 1.5 / 12
 
-C = 0.667μF
+D = 0.125
 
-Hence a 0.68μF capacitor will be used instead.
+Iripple = D*(Vin - Voutmin) / (Fswitch * L)
+
+Iripple = 0.125*(12-1.5) / 100k*33µH
+
+Iripple = 0.125*(12-1.5) / 100k*33µH
+
+Iripple = 0.3977...A
+
+C = Iripple / (8 * Fswitch * ΔVout)
+
+ΔVout = Voutmin / 100 = 1.5 / 100 = 0.015
+1% of 1.5
+
+C = 0.3977 / (8 * 100k * 0.015)
+
+C = 33.14μF
+
+Hence a 33μF capacitor will be used instead.
 
