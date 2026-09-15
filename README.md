@@ -33,6 +33,14 @@ Will be updated as research continues, below are the components needed based on 
 - LCD with I2C backpack
 - Rotary
 
+## Current detection
+
+Current detection is done via a shunt resistor and an amplifier, the INA180 is being used due to it being especially designed for current sensing.
+
+<img width="518" height="598" alt="image" src="https://github.com/user-attachments/assets/e43990d6-975d-4c48-ba00-905138ef3bc4" />
+
+C1 is used to decouple the 3.3V power supply from the ESP32.
+
 ## Calculations
 
 The switching frequency is to be 100kHz
