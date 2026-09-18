@@ -11,17 +11,19 @@ The ESP32 is to be independently powered with USB-C.
 
 Will be updated as research continues, below are the components needed based on current knowledge.
 
-- MOSFET
-- - Gate driver circuit to drive the mosfet, ESP32 does not provide enough volatge
-- - gate resistors
+- IRF4905 MOSFET
+- - TC4427 MOSFET driver
+- - 10Ω gate resistor
 
 
 - Schottky diode
 - 33µH Inductor
 - 100n Input capacitor (stops high frequency noise)
-- 33μF Output capacitor (Seen in most basic buck converter diagrams, stores and releases charge in on and off phase)
+- 47μF Output capacitor (Seen in most basic buck converter diagrams, stores and releases charge in on and off phase)
 - Voltage divider resistors (decreases output voltage so the esp32 can safely measure it)
-- Shunt resistor ciruit (allows for current to be measured)
+  
+- INA180A1 current sensing amplifier, gain 20
+- 50mΩ shunt resistor
 
 - ESP32
 - - Voltage regulator for ESP32
@@ -120,5 +122,4 @@ C = 0.3977 / (8 * 100k * 0.015)
 
 C = 33.14μF
 
-Hence a 33μF capacitor will be used instead.
-
+To account for capacitor intolerance and other real world factors we will use 47μF capacitor which is well above the minimum of 33.14μF.
