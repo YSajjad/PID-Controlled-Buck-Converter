@@ -7,6 +7,19 @@ The ESP32 is to be independently powered with USB-C.
 
 <img width="964" height="610" alt="image" src="https://github.com/user-attachments/assets/ea0364b2-fb53-425b-acd4-b5d6de32e7c7" />
 
+## Circuit Diagram
+
+<img width="1365" height="565" alt="image" src="https://github.com/user-attachments/assets/70da8bb3-2cad-4482-b800-b53687a4db79" />
+
+The decoupling capacitor C2 and C5 mitigates high and low frequency noise.
+
+The zener diode clamps the voltage to a safe limit preventing damage to the ESP32.
+
+The network formed by R5,R6 and C4 acts as a low pass filter to protect the INA180 from high frequency noise.
+
+R1 prevents ringing.
+
+
 ## Components
 
 Will be updated as research continues, below are the components needed based on current knowledge.
@@ -18,12 +31,18 @@ Will be updated as research continues, below are the components needed based on 
 
 - Schottky diode
 - 33µH Inductor
-- 100n Input capacitor (stops high frequency noise)
+- 100n Input capacitor
+- 100μ Input capacitor
 - 47μF Output capacitor (Seen in most basic buck converter diagrams, stores and releases charge in on and off phase)
-- Voltage divider resistors (decreases output voltage so the esp32 can safely measure it)
+  
+- 10kΩ & 27kΩ Voltage divider resistors
+- 3.3V zener diode
+- 100n capacitor
   
 - INA180A1 current sensing amplifier, gain 20
 - 50mΩ shunt resistor
+- 2x 10Ω resistors
+- 100nF capacitor
 
 - ESP32
 - - Voltage regulator for ESP32
