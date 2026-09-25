@@ -1,4 +1,16 @@
 # PID-Controlled-Buck-Converter
+
+This project is currently in development.
+
+| Tasks  | Status | 
+| ------------- | ------------- |
+| Component Calculation & Selection  | 
+| KiCad Schematics   | Complete  | 
+| KiCad PCB   | Incomplete - Estimated completion in late October |
+| MODFET & driver Test   | Incomplete - Estimated completion in early October |
+| PID code for PID tuning   | Incomplete |
+
+
 A DC to DC buck converter controlled by a PID system, The inclusions of a rotary allows for adjustment of output voltage, the output voltage is read from a screen.
 The buck converter is to take a 12V input and produce an output from 1.5V to 9V depending on the target set by the rotary, this is displayed on the LCD screen, which uses an I2C backpack.
 The current sensor is to be implemented via a shunt resistor. The ESP32 cannot handle voltages above 3.3V hence the potential divider will ensure a safe voltage quantity is passed.
@@ -9,9 +21,13 @@ The ESP32 is to be independently powered with USB-C.
 
 ## Circuit Diagram
 
-<img width="1365" height="565" alt="image" src="https://github.com/user-attachments/assets/70da8bb3-2cad-4482-b800-b53687a4db79" />
+<img width="976" height="665" alt="image" src="https://github.com/user-attachments/assets/2b41ab7f-ab00-4c71-8162-08f04bf8db34" />
+
+J1 and J2 are used to hold the ESP32, this allows the microcontroller to be remocewd when not in use.
 
 The decoupling capacitor C2 and C5 mitigates high and low frequency noise.
+
+The pull up resistor R7 keeps the MOSFET off during boot up.
 
 The zener diode clamps the voltage to a safe limit preventing damage to the ESP32.
 
@@ -29,7 +45,7 @@ Will be updated as research continues, below are the components needed based on 
 - - 10Ω gate resistor
 
 
-- Schottky diode
+- 1N5822 Schottky diode
 - 33µH Inductor
 - 100n Input capacitor
 - 100μ Input capacitor
@@ -46,13 +62,19 @@ Will be updated as research continues, below are the components needed based on 
 
 - ESP32
 - - Voltage regulator for ESP32
-- - decoupling capacitors
-
 - - ADC protection (protects ESP32 pins)
 - - ADC noise capacitors (stops high frequency noise)
+ 
+- Decoupling capacitors
 
-- LCD with I2C backpack
-- Rotary
+- 2x16 LCD with I2C backpack
+- KY-040 Rotary encoder
+
+## Testing
+
+This test is expected to take place in early October 2026.
+
+The IRF4905 is to be tested alongside the TC4427 using an oscilloscope, function generator and PSU.
 
 ## Current detection
 
