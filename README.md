@@ -4,7 +4,7 @@ This project is currently in development.
 
 | Tasks  | Status | 
 | ------------- | ------------- |
-| Component Calculation & Selection  | 
+| Component Calculation & Selection  | Complete  |
 | KiCad Schematics   | Complete  | 
 | KiCad PCB   | Incomplete - Estimated completion in late October |
 | MODFET & driver Test   | Incomplete - Estimated completion in early October |
